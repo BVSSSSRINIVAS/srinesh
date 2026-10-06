@@ -1,0 +1,797 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Srinivas | Portfolio</title>
+
+    <style>
+        /* =========================
+           GENERAL STYLES
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        nav {
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at top right, #164e63 0%, transparent 30%),
+                #0f172a;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h3 {
+            font-size: 22px;
+            color: #94a3b8;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h1 {
+            font-size: 55px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .hero-content h1 span {
+            color: #38bdf8;
+        }
+
+        .hero-content h2 {
+            font-size: 28px;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            max-width: 600px;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        .primary-btn:hover {
+            background: #0ea5e9;
+            transform: translateY(-3px);
+        }
+
+        .secondary-btn {
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        .secondary-btn:hover {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 5px solid #38bdf8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 90px;
+            background: #1e293b;
+            box-shadow: 0 0 50px rgba(56, 189, 248, 0.3);
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        #about {
+            background: #111827;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            color: #cbd5e1;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #1e293b;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .skill-card h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #94a3b8;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
+        #projects {
+            background: #111827;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+        }
+
+        .project-card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        .project-card a {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           CERTIFICATIONS
+        ========================== */
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .certificate {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #38bdf8;
+        }
+
+        .certificate h3 {
+            margin-bottom: 8px;
+            color: #f8fafc;
+        }
+
+        .certificate p {
+            color: #94a3b8;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        #contact {
+            background: #111827;
+        }
+
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-box p {
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .contact-item {
+            background: #1e293b;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: #cbd5e1;
+            border: 1px solid #334155;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #020617;
+            color: #64748b;
+        }
+
+        footer span {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 50px;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .skills-container,
+            .projects-container,
+            .certifications {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content h2 {
+                font-size: 22px;
+            }
+
+            .hero-image {
+                width: 220px;
+                height: 220px;
+                font-size: 65px;
+            }
+
+            .skills-container,
+            .projects-container,
+            .certifications {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Srinivas.</div>
+
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certificates</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
+    <section id="home">
+
+        <div class="container hero">
+
+            <div class="hero-content">
+
+                <h3>Hello, I'm</h3>
+
+                <h1>
+                    <span>Srinivas</span>
+                </h1>
+
+                <h2>Computer Science Student & Developer</h2>
+
+                <p>
+                    I am a B.Tech Computer Science student passionate about
+                    web development, cloud computing, and building practical
+                    software projects.
+                </p>
+
+                <div class="buttons">
+                    <a href="#projects" class="btn primary-btn">
+                        View Projects
+                    </a>
+
+                    <a href="#contact" class="btn secondary-btn">
+                        Contact Me
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="hero-image">
+                👨‍💻
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                About <span>Me</span>
+            </h2>
+
+            <div class="about-content">
+
+                <p>
+                    I am a final-year Bachelor of Technology student in
+                    Computer Science and Engineering.
+                </p>
+
+                <p>
+                    I enjoy developing web applications and learning modern
+                    technologies such as Python, Java, AWS, Docker and
+                    database technologies.
+                </p>
+
+                <p>
+                    My goal is to become a skilled software engineer and
+                    create useful applications that solve real-world problems.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                My <span>Skills</span>
+            </h2>
+
+            <div class="skills-container">
+
+                <div class="skill-card">
+                    <h3>Python</h3>
+                    <p>Programming, automation and backend development.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Java</h3>
+                    <p>Object-oriented programming and application development.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>HTML & CSS</h3>
+                    <p>Responsive and modern web interfaces.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>JavaScript</h3>
+                    <p>Interactive web applications and frontend logic.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>MySQL</h3>
+                    <p>Database design, queries and data management.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>AWS</h3>
+                    <p>Cloud computing and deployment technologies.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                My <span>Projects</span>
+            </h2>
+
+            <div class="projects-container">
+
+                <div class="project-card">
+
+                    <div class="icon">💻</div>
+
+                    <h3>ElevateHer AI</h3>
+
+                    <p>
+                        An AI-powered education and career empowerment
+                        platform designed to help students learn and
+                        improve their career opportunities.
+                    </p>
+
+                    <a href="#">
+                        View Project →
+                    </a>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <div class="icon">🏥</div>
+
+                    <h3>Hospital Management System</h3>
+
+                    <p>
+                        A web-based system for managing patients,
+                        doctors, appointments and hospital information.
+                    </p>
+
+                    <a href="#">
+                        View Project →
+                    </a>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <div class="icon">📚</div>
+
+                    <h3>Online Learning Platform</h3>
+
+                    <p>
+                        An online learning platform that provides courses,
+                        lessons and learning resources for students.
+                    </p>
+
+                    <a href="#">
+                        View Project →
+                    </a>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <div class="icon">💰</div>
+
+                    <h3>Indian Tax & Expense Planner</h3>
+
+                    <p>
+                        A financial planning application that helps users
+                        understand expenses and estimate taxes.
+                    </p>
+
+                    <a href="#">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CERTIFICATIONS
+    ========================== -->
+
+    <section id="certifications">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                My <span>Certifications</span>
+            </h2>
+
+            <div class="certifications">
+
+                <div class="certificate">
+                    <h3>AWS Certified Cloud Practitioner</h3>
+                    <p>AWS CLF-C02</p>
+                </div>
+
+                <div class="certificate">
+                    <h3>AWS Solutions Architect</h3>
+                    <p>AWS SAA-C03</p>
+                </div>
+
+                <div class="certificate">
+                    <h3>AWS Developer Associate</h3>
+                    <p>AWS DVA-C02</p>
+                </div>
+
+                <div class="certificate">
+                    <h3>GitHub Foundations</h3>
+                    <p>GitHub GH-900</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Contact <span>Me</span>
+            </h2>
+
+            <div class="contact-box">
+
+                <p>
+                    Interested in working together or discussing a project?
+                    Feel free to contact me.
+                </p>
+
+                <div class="contact-info">
+
+                    <div class="contact-item">
+                        📧 your-email@gmail.com
+                    </div>
+
+                    <div class="contact-item">
+                        📱 +91 XXXXX XXXXX
+                    </div>
+
+                    <div class="contact-item">
+                        💻 GitHub
+                    </div>
+
+                    <div class="contact-item">
+                        🔗 LinkedIn
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 <span>Srinivas</span>. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```
